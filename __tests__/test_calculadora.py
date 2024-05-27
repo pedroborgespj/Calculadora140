@@ -46,3 +46,12 @@ def test_dividir_dois_numeros():
     resultado_obtido = dividir_dois_numeros(num1, num2)
 
     assert resultado_esperado == resultado_obtido
+
+def test_dividir_por_zero():
+    num1 = 10
+    num2 = 0
+    resultado_esperado = 'Erro: Não é possível dividir por zero.'
+
+    resultado_obtido = dividir_dois_numeros(num1, num2)
+
+    assert resultado_esperado == resultado_obtido
