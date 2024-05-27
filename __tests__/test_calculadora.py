@@ -55,3 +55,25 @@ def test_dividir_por_zero():
     resultado_obtido = dividir_dois_numeros(num1, num2)
 
     assert resultado_esperado == resultado_obtido
+
+# Teste Baseados em Dados = Data Driven Tests (DDT) --> Massa de Teste
+    # Dados em uma lista
+    # Dados em um arquivo --> vários formatos, sendo o mais comum csv, json, xml
+
+@pytest.mark.parametrize('num1, num2, resultado_esperado', 
+                         [ # array / matriz
+                            (5, 7, 12), # tupla / registro
+                            (0, 8, 8),
+                            (10, -15, -5),
+                            (6, 0.75, 6.75)    
+                         ]
+                        )
+
+def test_somar_dois_numeros_lista(num1, num2, resultado_esperado):
+    # Arrange / Prepara / Configura - dados fornecidos pela massa de teste em formato de lista
+
+    #Act / Executa
+    resultado_obtido = somar_dois_numeros(num1, num2)
+
+    # Assert / Valida
+    assert resultado_esperado == resultado_obtido
