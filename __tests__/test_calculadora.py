@@ -1,6 +1,7 @@
 # 1 - bibliotecas, frameworks e referencias externas
 import pytest
 from calculadora.calculadora import somar_dois_numeros, subtrair_dois_numero, multiplicar_dois_numeros, dividir_dois_numeros
+from utils.utils import ler_csv
 
 # 2 - Testes
 
@@ -77,3 +78,14 @@ def test_somar_dois_numeros_lista(num1, num2, resultado_esperado):
 
     # Assert / Valida
     assert resultado_esperado == resultado_obtido
+
+@pytest.mark.parametrize('num1, num2, resultado_esperado', ler_csv('./fixtures./massa_somar.csv'))
+
+def test_somar_dois_numeros_csv(num1, num2, resultado_esperado):
+    # Arrange / Prepara / Configura - dados fornecidos pela massa de teste em formato de lista
+
+    #Act / Executa
+    resultado_obtido = somar_dois_numeros(float(num1), float(num2))
+
+    # Assert / Valida
+    assert float(resultado_esperado) == resultado_obtido
